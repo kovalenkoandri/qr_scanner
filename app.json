@@ -1,28 +1,21 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "my-app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "name": "qr_scanner",
+    "slug": "qr_scanner",
+    "platforms": ["android"],
+    "scheme": "https",
+    "orientation": "default",
+    "icon": "./assets/images/icon.jpg",
     "splash": {
-      "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#353542"
     },
-    "ios": {
-      "supportsTablet": true
-    },
+    "newArchEnabled": true,
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.kovalenkoandrii.qr_scanner",
+      "versionCode": 1
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [["expo-camera"]],
+    "owner": "kovalenkoandrii"
   }
 }
