@@ -2,7 +2,9 @@
   "expo": {
     "name": "qr_scanner",
     "slug": "qr_scanner",
-    "platforms": ["android"],
+    "platforms": [
+      "android"
+    ],
     "scheme": "https",
     "orientation": "default",
     "icon": "./assets/images/icon.jpg",
@@ -13,9 +15,32 @@
     "newArchEnabled": true,
     "android": {
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.kovalenkoandrii.qr_scanner",
-      "versionCode": 1
+      "versionCode": 2,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.kovalenkoandrii.qr_scanner"
     },
-    "plugins": [["expo-camera"]],
-    "owner": "kovalenkoandrii"
+    "plugins": [
+      [
+        "expo-camera"
+      ]
+    ],
+    "owner": "kovalenkoandrii",
+    "extra": {
+      "eas": {
+        "projectId": "8cc1f3fb-afb7-4919-bd3d-85509980d54f"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/8cc1f3fb-afb7-4919-bd3d-85509980d54f"
+    },
+    "ios": {}
   }
 }
