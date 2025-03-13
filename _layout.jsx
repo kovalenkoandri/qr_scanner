@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, Alert } from "react-native";
 import { CameraView, Camera } from "expo-camera";
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+import * as Linking from "expo-linking";
 
 export default function RootLayout() {
-  
-
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -19,9 +16,24 @@ export default function RootLayout() {
     getCameraPermissions();
   }, []);
 
-  const handleBarcodeScanned = ({ type, data }) => {
+  const handleBarcodeScanned = async ({ type, data }) => {
     setScanned(true);
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+
+    try {
+      // If it looks like a URL, open it directly
+      if (data.startsWith("http://") || data.startsWith("https://")) {
+        await Linking.openURL(data);
+      } else {
+        // Otherwise, search it on Google
+        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(
+          data,
+        )}`;
+        await Linking.openURL(googleSearchUrl);
+      }
+    } catch (err) {
+      Alert.alert("Error", `Couldn't open the URL: ${err.message}`);
+    }
   };
 
   if (hasPermission === null) {
